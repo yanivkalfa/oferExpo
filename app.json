@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "OfersPhoneExpo",
-    "slug": "OfersPhoneExpo",
+    "name": "OfersPhone",
+    "slug": "ofersphone",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,18 +13,38 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ofersphone.app",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "OfersPhone uses the microphone to convert your speech to text.",
+        "NSSpeechRecognitionUsageDescription": "OfersPhone uses speech recognition to transcribe what you say."
+      }
     },
     "android": {
+      "package": "com.ofersphone.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Allow OfersPhone to use the microphone.",
+          "speechRecognitionPermission": "Allow OfersPhone to use speech recognition.",
+          "androidSpeechServicePackages": ["com.google.android.googlequicksearchbox"]
+        }
+      ]
+    ]
   }
 }
+
